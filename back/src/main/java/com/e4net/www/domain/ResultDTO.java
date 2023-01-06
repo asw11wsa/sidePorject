@@ -1,4 +1,4 @@
-package com.e4net.www.dto;
+package com.e4net.www.domain;
 
 import org.springframework.http.HttpStatus;
 

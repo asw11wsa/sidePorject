@@ -1,6 +1,6 @@
-package com.e4net.www.dto.member;
+package com.e4net.www.domain.member;
 
-import com.e4net.www.dto.ParentDTO;
+import com.e4net.www.domain.ParentDTO;
 
 import lombok.Getter;
 import lombok.Setter;

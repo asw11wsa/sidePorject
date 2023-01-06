@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.e4net.www.dto.ResultDTO;
-import com.e4net.www.dto.member.MemberJoinDTO;
-import com.e4net.www.dto.member.MemberLoginDTO;
+import com.e4net.www.domain.ResultDTO;
+import com.e4net.www.domain.member.MemberJoinDTO;
+import com.e4net.www.domain.member.MemberLoginDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,6 +19,14 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UserController {
 	
+	/**
+	 * for Login
+	 * @author siuLee
+	 * @param dto
+	 * @throws Exception
+	 * @date 2023. 01. 06.
+	 * @see<pre></pre>
+	 */
 	@PostMapping(value = "/login")
 	public ResponseEntity<Map<String, String>> login(@RequestBody MemberLoginDTO dto){
 		Map<String, String> map = new HashMap<>();
