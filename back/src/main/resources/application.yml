@@ -1,0 +1,40 @@
+server:
+  port: 8787
+  servlet:
+    session:
+      timeout: 4h
+  
+spring:
+  profiles:
+    group:
+      "local": "local"
+    active: local
+
+logging:
+  file:
+    name: /log/test.log
+    max-history: 7
+    max-size: 10MB
+          
+  level:
+    '[net.e4net.demo]': debug
+---
+#local 환경
+spring:
+  main:
+    allow-circular-references: true
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/e4netback
+    username: edu
+    password: edu
+  jpa:
+    properties:
+      hibernate:
+        '[format_sql]': true
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
