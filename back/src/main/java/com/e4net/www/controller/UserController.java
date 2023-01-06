@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.e4net.www.dto.MemberLoginDTO;
+import com.e4net.www.dto.ResultDTO;
+import com.e4net.www.dto.member.MemberJoinDTO;
+import com.e4net.www.dto.member.MemberLoginDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,11 +19,21 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UserController {
 	
-	@PostMapping(value = "/user/test")
-	public ResponseEntity<Map<String, String>> test(@RequestBody MemberLoginDTO dto){
+	@PostMapping(value = "/login")
+	public ResponseEntity<Map<String, String>> login(@RequestBody MemberLoginDTO dto){
 		Map<String, String> map = new HashMap<>();
 		map.put("hello", dto.getMembId());
 		map.put("bye", dto.getMembPwd());
 		return new ResponseEntity<Map<String,String>>(map, HttpStatus.OK);
+	}
+	
+	@PostMapping(value = "/join")
+	public ResponseEntity<ResultDTO> join(@RequestBody MemberJoinDTO dto){
+		ResultDTO result = new ResultDTO();
+		result.setData(dto);
+		result.setMessage("join is Ok");
+		result.setStatus(HttpStatus.NO_CONTENT);
+		result.setError("no error");
+		return new ResponseEntity<ResultDTO>(result, HttpStatus.OK);
 	}
 }
