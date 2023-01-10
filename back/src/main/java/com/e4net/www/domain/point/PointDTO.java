@@ -25,7 +25,5 @@ public class PointDTO extends ParentDTO{
 		this.mdto = mdto;
 	}
 	
-	public PointDTO() {
-		
-	}
+	public PointDTO() {}
 }
