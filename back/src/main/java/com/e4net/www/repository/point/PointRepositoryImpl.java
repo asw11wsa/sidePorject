@@ -1,14 +1,9 @@
 package com.e4net.www.repository.point;
 
-import java.lang.reflect.Type;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
-
 import com.e4net.www.domain.point.PointDTO;
-import com.e4net.www.domain.point.PointMemberDTO;
 import com.e4net.www.entity.member.QMemberEntity;
 import com.e4net.www.entity.point.PointEntity;
 import com.e4net.www.entity.point.QPointEntity;
@@ -24,8 +19,6 @@ public class PointRepositoryImpl implements PointRepositoryCustom {
 	private QMemberEntity qMemberEntity = QMemberEntity.memberEntity;
 	
 	private QPointEntity qPointEntity = QPointEntity.pointEntity;
-	
-	private final ModelMapper modelMapper;
 
 	@Override
 	public List<PointDTO> findMemberPoint(Long membSn) {
@@ -36,8 +29,6 @@ public class PointRepositoryImpl implements PointRepositoryCustom {
 				.where(qPointEntity.memberEntity.membSn.eq(membSn))
 				.fetch();
 		List<PointDTO> pointList = result.stream().map(PointDTO::new).collect(Collectors.toList());
-		Type listType = new TypeToken<List<PointMemberDTO>>(){}.getType();
-		List<PointMemberDTO> list = modelMapper.map(result, listType);
 		return pointList;
 	}
 
