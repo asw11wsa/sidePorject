@@ -12,11 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.e4net.www.domain.ResultDTO;
 import com.e4net.www.domain.member.MemberDTO;
-import com.e4net.www.domain.member.MemberJoinDTO;
-import com.e4net.www.domain.member.MemberLoginDTO;
-import com.e4net.www.domain.member.MemberUpdateDTO;
 import com.e4net.www.domain.point.PointDTO;
-import com.e4net.www.domain.point.PointMemberDTO;
 import com.e4net.www.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -38,7 +34,7 @@ public class UserController {
 	 * @see<pre></pre>
 	 */
 	@PostMapping(value = "/login")
-	public ResponseEntity<Map<String, String>> login(@RequestBody MemberLoginDTO dto){
+	public ResponseEntity<Map<String, String>> login(@RequestBody MemberDTO dto){
 		Map<String, String> map = new HashMap<>();
 		map.put("hello", dto.getMembId());
 		map.put("bye", dto.getMembPwd());
