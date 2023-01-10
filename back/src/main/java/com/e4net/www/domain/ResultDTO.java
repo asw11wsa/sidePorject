@@ -1,7 +1,5 @@
 package com.e4net.www.domain;
 
-import org.springframework.http.HttpStatus;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +8,6 @@ import lombok.Setter;
 public class ResultDTO {
 	ParentDTO data;
 	String message;
-	HttpStatus status;
+	int status;
 	String error;
 }
