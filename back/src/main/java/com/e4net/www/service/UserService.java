@@ -4,20 +4,15 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.e4net.www.domain.ResultDTO;
 import com.e4net.www.domain.member.MemberDTO;
-import com.e4net.www.domain.member.MemberJoinDTO;
-import com.e4net.www.domain.member.MemberUpdateDTO;
 import com.e4net.www.domain.point.PointDTO;
-import com.e4net.www.domain.point.PointMemberDTO;
 import com.e4net.www.entity.member.MemberEntity;
 import com.e4net.www.entity.point.PointEntity;
 import com.e4net.www.repository.member.MemberRepository;
 import com.e4net.www.repository.point.PointRepository;
-import com.querydsl.core.Tuple;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
