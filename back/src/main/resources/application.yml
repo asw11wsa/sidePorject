@@ -1,5 +1,5 @@
 server:
-  port: 8787
+  port: 8888
   servlet:
     session:
       timeout: 4h
@@ -36,5 +36,6 @@ spring:
       hibernate:
         '[format_sql]': true
     hibernate:
-      ddl-auto: create-drop
-    show-sql: false
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
