@@ -4,8 +4,8 @@ export const userLogin = async(dto) => {
     try{
         const result = await customAxios.post('/login', dto);
         return result;
-    }catch(err){
-        console.log(err);
+    }catch(e){
+        console.log(e);
     }
 }
 

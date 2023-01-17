@@ -6,12 +6,15 @@ import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.e4net.www.domain.ListResultDTO;
 import com.e4net.www.domain.ResultDTO;
 import com.e4net.www.domain.member.MemberDTO;
+import com.e4net.www.domain.member.MemberPointDTO;
 import com.e4net.www.domain.point.PointDTO;
 import com.e4net.www.service.UserService;
 
@@ -53,9 +56,22 @@ public class UserController {
 		return new ResponseEntity<ResultDTO>(result,HttpStatus.OK);
 	}
 	
+	@GetMapping(value = "/idcheck")
+	public ResponseEntity<ResultDTO> idCheck(MemberDTO dto){
+		System.out.println(dto.getMembId());
+		ResultDTO result = userService.idCheck(dto);
+		return new ResponseEntity<ResultDTO>(result,HttpStatus.OK);
+	}
+	
 	@PostMapping(value = "/user/point")
-	public ResponseEntity<List<PointDTO>> userPoint(@RequestBody MemberDTO dto){
-		List<PointDTO> result = userService.findMemberPoint(dto.getMembSn());
-		return new ResponseEntity<List<PointDTO>>(result,HttpStatus.OK);
+	public ResponseEntity<ListResultDTO> userPoint(@RequestBody MemberDTO dto){
+		ListResultDTO result = userService.findMemberPoint(dto.getMembSn());
+		return new ResponseEntity<ListResultDTO>(result,HttpStatus.OK);
+	}
+	
+	@PostMapping(value = "/user/point/test")
+	public ResponseEntity<ListResultDTO> userPointTest(@RequestBody MemberDTO dto){
+		ListResultDTO result = userService.findMemberPointTest(dto.getMembSn());
+		return new ResponseEntity<ListResultDTO>(result,HttpStatus.OK);
 	}
 }

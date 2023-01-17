@@ -27,7 +27,7 @@ public class MemberEntity {
 	@Column(name = "MEMB_SN")
 	long membSn;
 	
-	@Column(name = "MEMB_ID")
+	@Column(name = "MEMB_ID",unique = true)
 	String membId;
 	
 	@Column(name = "MEMB_PWD")

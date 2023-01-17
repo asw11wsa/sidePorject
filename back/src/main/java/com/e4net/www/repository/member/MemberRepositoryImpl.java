@@ -32,4 +32,13 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom{
 		.execute();
 	}
 
+	@Override
+	public Long idCheck(MemberDTO dto) {
+		return jpaQueryFactory
+				.select(qMemberEntity.count())
+				.from(qMemberEntity)
+				.where(qMemberEntity.membId.eq(dto.getMembId()))
+				.fetchOne();
+	}
+
 }

@@ -7,8 +7,8 @@ import { useState } from 'react';
 
 function App() {
   const [user, setUser] = useState({
-    membId: "",
-    membPwd: ""
+    membId: "asw11wsa",
+    membPwd: "1234"
   })
 
   const check = async(dto) => {
